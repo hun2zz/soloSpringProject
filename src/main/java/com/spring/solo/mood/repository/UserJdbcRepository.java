@@ -1,2 +1,24 @@
-package com.spring.solo.mood.repository;public class UserJdbcRepository {
+package com.spring.solo.mood.repository;
+
+import com.spring.solo.mood.entity.User;
+import lombok.RequiredArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+
+@Repository
+@RequiredArgsConstructor
+public class UserJdbcRepository implements UserRepository {
+    private final JdbcTemplate template;
+
+
+
+    @Override
+    public boolean save(User user) {
+        String sql = "INSERT INTO tbl_mood_user (user_name, user_id, user_password, user_email, " +
+                "user_nickname, user_age, user_address " +
+                ") VALUES (?, ?, ?, ?, ?, ?, ?)";
+        return template.update(sql, user.getUserName(), user.getUserId(), user.getUserPass(), user.getUserMail()
+        ,user.getUserNickName(), user.getUserAge(), user.getUserAddress()) == 1;
+    }
 }

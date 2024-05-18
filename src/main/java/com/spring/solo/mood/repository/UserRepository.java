@@ -1,2 +1,7 @@
-package com.spring.solo.mood.repository;public interface UserRepository {
+package com.spring.solo.mood.repository;
+
+import com.spring.solo.mood.entity.User;
+
+public interface UserRepository {
+    boolean save(User user);
 }
