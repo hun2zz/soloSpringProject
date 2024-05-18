@@ -1,6 +1,5 @@
 package com.spring.solo.mood.controller;
 
-
 import com.spring.solo.mood.dto.UserDto;
 import com.spring.solo.mood.entity.User;
 import com.spring.solo.mood.repository.UserRepository;
@@ -21,13 +20,13 @@ public class UserController {
     @GetMapping("list")
     public String list () {
         System.out.println("ㄴㄴ");
-        return "reg_form";
+        return "/board/reg_form";
     }
 
     @PostMapping("save")
     public String save(UserDto user) {
         User user1 = new User(user);
         userRepository.save(user1);
-        return "redirect:/reg_form";
+        return "redirect:/mood/list/";
     }
 }

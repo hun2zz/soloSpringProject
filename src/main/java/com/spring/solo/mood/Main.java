@@ -1,11 +1,11 @@
-package com.spring.solo;
+package com.spring.solo.mood;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
     @SpringBootApplication
-    @ServletComponentScan(basePackages = "com.spring.solo")
+    @ServletComponentScan(basePackages = "com.spring.solo.mood")
 public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
